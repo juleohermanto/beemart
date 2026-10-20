@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - BeeMart</title>
+    <link rel="stylesheet" href="/css/site.css" />
+</head>
+<body>
+    <header class="bm-navbar">
+        <div class="bm-brand">BeeMart</div>
+        <div class="bm-nav-right">
+            <span id="headerClock">Memuat waktu...</span>
+            <span id="headerUserSession">Sesi: -</span>
+            <button class="btn-logout" id="btnLogout">Logout</button>
+        </div>
+    </header>
+
+    <main class="bm-container">
+        <div class="bm-tabs">
+            <a href="/Transaction" class="tab-btn @(ViewData["ActiveTab"]?.ToString() == "New" ? "active" : "")">New Transaction</a>
+            <a href="/History" class="tab-btn @(ViewData["ActiveTab"]?.ToString() == "History" ? "active" : "")">History Transaction</a>
+        </div>
+
+        @RenderBody()
+    </main>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const rawSession = localStorage.getItem("beemart_user");
+            if (!rawSession) {
+                window.location.href = "/Login";
+                return;
+            }
+
+            const currentUser = JSON.parse(rawSession);
+            const sessionDisplay = currentUser.role === "Cashier"
+                ? `Kasir: ${currentUser.username}`
+                : `Role: Admin | Login: ${currentUser.username}`;
+            document.getElementById("headerUserSession").innerText = sessionDisplay;
+
+            function updateClock() {
+                const now = new Date();
+                const dateStr = now.toLocaleDateString('id-ID');
+                const timeStr = now.toLocaleTimeString('id-ID').replace(/\./g, ':');
+                document.getElementById("headerClock").innerText = `${dateStr}, ${timeStr} | `;
+            }
+            updateClock();
+            setInterval(updateClock, 1000);
+            document.getElementById("btnLogout").addEventListener("click", () => {
+                localStorage.removeItem("beemart_user");
+                window.location.href = "/Login";
+            });
+        });
+    </script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

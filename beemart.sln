@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36623.8
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "beemart.frontend", "beemart.frontend\beemart.frontend.csproj", "{8D517FD8-FB49-4CBA-9BB2-1089E2A76EEC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "beemart.backend", "beemart.backend\beemart.backend.csproj", "{6963030D-4170-386F-F68F-B186E5F21878}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8D517FD8-FB49-4CBA-9BB2-1089E2A76EEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D517FD8-FB49-4CBA-9BB2-1089E2A76EEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D517FD8-FB49-4CBA-9BB2-1089E2A76EEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D517FD8-FB49-4CBA-9BB2-1089E2A76EEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6963030D-4170-386F-F68F-B186E5F21878}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6963030D-4170-386F-F68F-B186E5F21878}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6963030D-4170-386F-F68F-B186E5F21878}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6963030D-4170-386F-F68F-B186E5F21878}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {77337EC3-2ECC-49C1-A5C4-07B501BDCF29}
+	EndGlobalSection
+EndGlobal

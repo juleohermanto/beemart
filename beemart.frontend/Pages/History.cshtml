@@ -1,0 +1,35 @@
+﻿@page
+@model beemart.frontend.Pages.HistoryModel
+@{
+    ViewData["Title"] = "History Transaction";
+    ViewData["ActiveTab"] = "History";
+}
+
+<h4 id="historySubtitle" style="margin-bottom: 14px; color: #1565c0;">Pencarian Data Transaksi</h4>
+
+<div style="display: flex; gap: 12px; align-items: center; margin-bottom: 18px;">
+    <label for="inputFilterDate" style="font-size: 13px; font-weight: bold;">Pilih Tanggal:</label>
+    <input type="date" id="inputFilterDate" class="form-control-bm" style="width: 200px; margin-bottom: 0;" />
+    <button type="button" class="btn-select" style="padding: 8px 16px;" id="btnSearchHistory">Cari Data</button>
+</div>
+<table class="bm-table">
+    <thead>
+        <tr>
+            <th>No. Transaksi</th>
+            <th>Tanggal & Jam</th>
+            <th>Kasir</th>
+            <th>Jml Item</th>
+            <th>Pembayaran</th>
+            <th>Total Harga</th>
+        </tr>
+    </thead>
+    <tbody id="historyTableBody">
+        <tr><td colspan="6" style="text-align: center; color: #888;"></td></tr>
+    </tbody>
+</table>
+
+<div class="bm-pagination" id="historyPagination"></div>
+
+@section Scripts {
+    <script src="/js/history.js"></script>
+}

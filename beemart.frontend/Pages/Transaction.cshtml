@@ -1,0 +1,61 @@
+﻿@page
+@model beemart.frontend.Pages.TransactionModel
+@{
+    ViewData["Title"] = "New Transaction";
+    ViewData["ActiveTab"] = "New";
+}
+
+<div class="invoice-banner" id="displayInvoiceNo">Invoice No: Memuat...</div>
+
+<label class="input-label" for="searchBarangInput">Cari Barang (Ketik: Apel / Susu, lalu tekan Enter)</label>
+<input type="text" id="searchBarangInput" class="form-control-bm" placeholder="Ketik nama barang..." autocomplete="off" />
+
+<div id="searchResultWrapper" style="display: none; margin-bottom: 20px;">
+    <table class="bm-table">
+        <thead>
+            <tr>
+                <th>Nama Barang</th><th>Berat</th><th>Stock</th>
+                <th>Harga</th><th>Diskon</th><th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody id="searchResultTableBody"></tbody>
+    </table>
+</div>
+
+<div id="selectedProductBox" class="selected-product-box" style="display: none;">
+    <div><strong>Barang Terpilih: </strong><span id="selectedProdName">-</span></div>
+    <div>Harga Satuan: <span id="selectedProdPrice">Rp 0</span></div>
+    <div>Sisa Stock: <span id="selectedProdStock">0</span></div>
+    <div style="display: flex; align-items: center; gap: 6px;">
+        <label for="inputQty"><strong>Qty:</strong></label>
+        <input type="number" id="inputQty" value="1" min="1" style="width: 70px; padding: 4px;" />
+    </div>
+    <button type="button" class="btn-select" id="btnAddToCart">Masukkan ke Keranjang</button>
+</div>
+
+<h4 style="margin-bottom: 10px;">Daftar Belanjaan</h4>
+<table class="bm-table">
+    <thead>
+        <tr>
+            <th>Nama Barang</th><th>Harga</th><th>Diskon</th>
+            <th>Qty</th><th>Subtotal</th><th>Aksi</th>
+        </tr>
+    </thead>
+    <tbody id="cartTableBody">
+        <tr><td colspan="6" style="text-align: center; color: #888;"></td></tr>
+    </tbody>
+</table>
+
+<div style="text-align: right; margin-bottom: 14px;">
+    <h3 id="displayGrandTotal" style="color: #0d47a1;">Total: Rp 0</h3>
+</div>
+<div style="display: flex; justify-content: flex-end; align-items: center; gap: 10px; margin-bottom: 18px;">
+    <label for="selectPaymentMethod" style="font-weight: bold; font-size: 13px;">Metode Pembayaran:</label>
+    <select id="selectPaymentMethod" style="padding: 6px; border-radius: 4px; min-width: 140px;"></select>
+</div>
+
+<button type="button" class="btn-action-primary" id="btnSubmitTransaction">Submit Transaksi</button>
+
+@section Scripts {
+    <script src="/js/transaction.js"></script>
+}
